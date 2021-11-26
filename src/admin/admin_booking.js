@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory, useLocation, Link } from 'react-router-dom'
 import fire from '../files/firebase';
-import '../movie_details.css';
+import '../trip_details.css';
 
 export const AdminBooking = () => {
     const history = useHistory();

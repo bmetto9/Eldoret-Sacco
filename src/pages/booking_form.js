@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom';
-import '../movie_details.css';
+import '../trip_details.css';
 
 export const Bookingform = () => {
     const history = useHistory();

@@ -3,7 +3,7 @@ import '../bookingform.css';
 import $ from 'jquery';
 import { useHistory, useLocation } from 'react-router-dom';
 import fire from '../files/firebase';
-import '../movie_details.css'
+import '../trip_details.css'
 
 
 export const Ticketbookingform = () => {

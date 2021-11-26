@@ -5,60 +5,55 @@ import DateRange from "@material-ui/icons/DateRange";
 import WeekendSharpIcon from "@material-ui/icons/WeekendSharp";
 import AttachMoneySharpIcon from "@material-ui/icons/AttachMoneySharp";
 import fire from '../files/firebase';
-import '../movie_details.css';
+import '../trip_details.css';
 
 export const Dashboard = () => {
-    const location = useLocation();
-    const profile = location.state.profile;
-    const name = location.state.name;
-    const email = location.state.email;
-    const password = location.state.password;
-    const mobile = location.state.mobile;
     const [userbookings, setuserbookings] = useState([]);
+    const [email, setEmail] = useState();
 
-    useEffect(() => {
-        fire.firestore().collection("Bookings").where("email", "==", email).limit(1).get().then((snapshot) => snapshot.forEach(ele => {
-            const data = ele.data();
-            setuserbookings(arr => [...arr, { data: data }]);
-            // console.log(data);
-        }))
+    // useEffect(() => {
+    //     fire.firestore().collection("Bookings").where("email", "==", email).limit(1).get().then((snapshot) => snapshot.forEach(ele => {
+    //         const data = ele.data();
+    //         setuserbookings(arr => [...arr, { data: data }]);
+    //         // console.log(data);
+    //     }))
 
-    }, [])
+    // }, [])
     return (
         <div className="wrapper ">
             <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
             <div className="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
                 <div className="logo"><a href="http://www.creative-tim.com" className="simple-text logo-normal">
-                    AK CINEMAS
+                    Eldoret Sacco
                 </a></div>
                 <div className="sidebar-wrapper">
                     <ul className="nav">
                         <li className="nav-item">
-                            <Link to={{ pathname: "/homepage", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link">
+                            <Link to="/homepage" className="nav-link">
                                 <i className="material-icons">home</i>
                                 <p>Home</p>
                             </Link>
                         </li>
                         <li className="nav-item active">
-                            <Link to={{ pathname: "/dashboard", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link">
+                            <Link to="/dashboard" className="nav-link">
                                 <i className="material-icons">dashboard</i>
                                 <p>Dashboard</p>
                             </Link>
                         </li>
                         <li className="nav-item ">
-                            <Link to={{ pathname: "/bookings", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link">
+                            <Link to="/bookings" className="nav-link">
                                 <i className="material-icons">content_paste</i>
                                 <p>Bookings</p>
                             </Link>
                         </li>
                         <li className="nav-item ">
-                            <Link to={{ pathname: "/userprofile", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link">
+                            <Link to="/userprofile" className="nav-link">
                                 <i className="material-icons">person</i>
                                 <p>User Profile</p>
                             </Link>
                         </li>
                         <li className="nav-item ">
-                            <Link to={{ pathname: "/feedback", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link" >
+                            <Link to="/feedback" className="nav-link" >
                                 <i className="material-icons">notifications</i>
                                 <p>Feedback</p>
                             </Link>
@@ -89,7 +84,7 @@ export const Dashboard = () => {
                 </nav>
                 <div class="content">
                     <div class="container-fluid" id="dashboard">
-                        {
+                        {/* {
                             userbookings.map((data, index) => {
                                 return <div class="row" key={index}>
                                     <div class="col-lg-3 col-md-6 col-sm-6">
@@ -161,7 +156,76 @@ export const Dashboard = () => {
                                     </div>
                                 </div>
                             })
-                        }
+                        } */}
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-warning card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons"><LocalMoviesIcon /></i>
+                                        </div>
+                                        <p class="card-category">Trip Name</p>
+                                        <h3 class="card-title">Nairobi - Nakuru</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons text-danger">warning</i>
+                                            Coaster Bus - KDA 515K
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-success card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons"><DateRange /></i>
+                                        </div>
+                                        <p class="card-category">Trip Date</p>
+                                        <h3 class="card-title">14th December 2021</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">date_range</i> Movie Date
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-danger card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons"><WeekendSharpIcon /></i>
+                                        </div>
+                                        <p class="card-category">Seat Number</p>
+                                        <h3 class="card-title">10</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">local_offer</i> Seat Number
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-info card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons"><AttachMoneySharpIcon /></i>
+                                        </div>
+                                        <p class="card-category">Total Amount</p>
+                                        <h3 class="card-title">Ksh 1,000.00</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">update</i> Total Amount
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div></div>
             </div>
         </div>

@@ -10,7 +10,7 @@ import { Ticketbookingform } from './pages/ticket_booking_form';
 import { Bookingform } from './pages/booking_form';
 import { Movieupload } from './admin/movie_upload';
 import { Feedback } from './pages/feedback_page';
-import { MovieDetails } from './pages/movie_details';
+import { TripDetails } from './pages/trip_details';
 import { Successresponse } from './response/success_response';
 import { Adminpage } from './admin/admin_page';
 import { Retrievefeedback } from './admin/retrieve_feedback';
@@ -55,7 +55,7 @@ function App() {
             <Movieupload />
           </Route>
           <Route exact path="/details">
-            <MovieDetails />
+            <TripDetails />
           </Route>
           <Route exact path="/success">
             <Successresponse />

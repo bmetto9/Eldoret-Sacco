@@ -4,49 +4,42 @@ import fire from '../files/firebase';
 import '../profile.css';
 
 export const Userprofile = () => {
-    const location = useLocation();
-    const profile = location.state.profile;
-    const name = location.state.name;
-    const email = location.state.email;
-    const password = location.state.password;
-    const mobile = location.state.mobile;
-    console.log(profile, name, email, password, mobile);
 
     return (
         <div>
             <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
             <div className="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
                 <div className="logo"><a href="http://www.creative-tim.com" className="simple-text logo-normal">
-                    AK CINEMAS
+                    Eldoret Sacco
                 </a></div>
                 <div className="sidebar-wrapper">
                     <ul className="nav">
                         <li className="nav-item">
-                            <Link to={{ pathname: "/homepage", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link">
+                            <Link to="/homepage" className="nav-link">
                                 <i className="material-icons">home</i>
                                 <p>Home</p>
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={{ pathname: "/dashboard", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link">
+                            <Link to="/dashboard" className="nav-link">
                                 <i className="material-icons">dashboard</i>
                                 <p>Dashboard</p>
                             </Link>
                         </li>
                         <li className="nav-item ">
-                            <Link to={{ pathname: "/bookings", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link">
+                            <Link to="/bookings" className="nav-link">
                                 <i className="material-icons">content_paste</i>
                                 <p>Bookings</p>
                             </Link>
                         </li>
                         <li className="nav-item active">
-                            <Link to={{ pathname: "/userprofile", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link">
+                            <Link to="/userprofile" className="nav-link">
                                 <i className="material-icons">person</i>
                                 <p>User Profile</p>
                             </Link>
                         </li>
                         <li className="nav-item ">
-                            <Link to={{ pathname: "/feedback", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link" >
+                            <Link to="/feedback" className="nav-link" >
                                 <i className="material-icons">notifications</i>
                                 <p>Feedback</p>
                             </Link>
@@ -75,14 +68,14 @@ export const Userprofile = () => {
                     </div>
                 </nav>
 
-                <div className="profile" style={{ fontFamily: 'sans-serif', textAlign: 'center', maxWidth: '350px', boxShadow: '0 0 10px rgba(0,0,0,0.2)', padding: '100px' }}>
-                    <img src={profile} alt="Profile Image" className="profile__image" style={{ width: '150px', height: '150px', objectFit: 'cover', borderRadius: '50%', margin: '0 auto 20px auto', display: 'block', marginTop: '-8%' }} />
-                    <div className="profile__name" style={{ fontSize: '1.2em', fontWeight: 'bold' }}>{name}</div>
+                <div className="profile" style={{ fontFamily: 'sans-serif', textAlign: 'center', width: '450px', boxShadow: '0 0 10px rgba(0,0,0,0.2)', padding: '100px' }}>
+                    <img src="" alt="Profile Image" className="profile__image" style={{ width: '150px', height: '150px', objectFit: 'cover', borderRadius: '50%', margin: '0 auto 20px auto', display: 'block', marginTop: '-8%' }} />
+                    <div className="profile__name" style={{ fontSize: '1.2em', fontWeight: 'bold' }}>Victor Maina</div>
                     <br />
-                    <div className="profile__title" style={{ marginBottom: '20px' }}>{email}</div>
+                    <div className="profile__title" style={{ marginBottom: '20px' }}>victorgithuim@gmail.com</div>
 
                     <div className="profile__detail" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9em', marginBottom: '20px' }}>
-                        <i className="material-icons">person</i>{mobile}
+                        <i className="material-icons">person</i>0701230892
                     </div>
 
                 </div>
