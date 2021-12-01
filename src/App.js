@@ -48,7 +48,7 @@ function App() {
           <Route exact path="/bookingform">
             <Bookingform />
           </Route>
-          <Route exact path="/pickceat">
+          <Route exact path="/pickseat">
             <Ticketbookingform />
           </Route>
           <Route exact path="/movieupload">
